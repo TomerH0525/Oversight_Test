@@ -1,0 +1,26 @@
+.Layout{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header, main, footer {
+    flex-shrink: 0;
+}
+
+header{
+    height: 10%;
+    
+}
+
+main{
+    flex-grow: 1;
+   
+}
+
+footer{
+    height: 5%;
+    
+}
