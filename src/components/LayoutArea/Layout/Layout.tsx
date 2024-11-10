@@ -1,4 +1,3 @@
-import "./Layout.css"
 import { BrowserRouter } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
@@ -10,17 +9,17 @@ function Layout(): JSX.Element{
     return (
         <BrowserRouter>
 
-            <div className="Layout">
+            <div className="flex flex-col flex-shrink-0 h-[100vh] text-center">
 
-                <header>
+                <header className="h-[15%]">
                     <Header/>
                 </header>
 
-                <main>
+                <main className="flex-grow">
                     <Routing/>
                 </main>
 
-                <footer>
+                <footer className="h-[5%]">
                     <Footer/>
                 </footer>
 
