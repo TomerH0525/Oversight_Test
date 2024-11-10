@@ -11,7 +11,7 @@ function Layout(): JSX.Element{
 
             <div className="flex flex-col flex-shrink-0 h-[100vh] text-center">
 
-                <header className="h-[15%]">
+                <header className="h-[auto]">
                     <Header/>
                 </header>
 
