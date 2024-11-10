@@ -9,17 +9,17 @@ function Layout(): JSX.Element{
     return (
         <BrowserRouter>
 
-            <div className="flex flex-col flex-shrink-0 h-[100vh] text-center">
+            <div className="flex flex-col h-[100vh] text-center flex-shrink-0 sticky">
 
-                <header className="h-[auto]">
+                <header className="h-[10%] grow-0">
                     <Header/>
                 </header>
 
-                <main className="flex-grow">
+                <main className="grow p-0 m-0">
                     <Routing/>
                 </main>
 
-                <footer className="h-[5%]">
+                <footer className="h-[5%] grow-0">
                     <Footer/>
                 </footer>
 

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 export function Header(): JSX.Element {
     return (
-        <div className="inline-flex w-full justify-between px-20 py-3 shadow-sm">
+        <div className="inline-flex w-full justify-between px-20 py-3 border-b ">
 
-            <div>
-                <Link to={"/"}>
-			        <h1 className="text-4xl">Coupon site</h1>
+            <div className="px-5 border-x content-center">
+                <Link to={"/home"}>
+			        <h1 className="sm:text-4xl text-xl m-auto font-bold ">Coupon site</h1>
                 </Link>
             </div>
 
@@ -20,7 +20,7 @@ export function Header(): JSX.Element {
                 </div>
 
                 <div>
-                    <Link to={"/cart"}>
+                    <Link to={"/"}>
                         <Button variant={"ghost"}>
                             <FontAwesomeIcon icon={faCartShopping}/> 
                         </Button>
