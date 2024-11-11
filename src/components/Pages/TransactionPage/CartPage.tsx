@@ -13,20 +13,6 @@ const cart = [
     amount: 3,
     sku: "12345",
   },
-  {
-    price: 100,
-    itemName: "Test",
-    itemDescription: "This is a default transaction for testing 100NIS",
-    amount: 1,
-    sku: "98765",
-  },
-  {
-    price: 100,
-    itemName: "Test",
-    itemDescription: "This is a default transaction for testing 100NIS",
-    amount: 2,
-    sku: "54321",
-  },
 ];
 
 function CartPage(): JSX.Element {
@@ -44,8 +30,8 @@ function CartPage(): JSX.Element {
   }
 
   useEffect(() => {
-    console.log("cartpage")
-  },[cart])
+    console.log("cartpage");
+  }, [cart]);
 
   return (
     <div className="h-full content-center">
