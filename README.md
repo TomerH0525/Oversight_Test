@@ -11,7 +11,7 @@ and reports system showing the trafic usage of coupons and the option to export 
 * only admins can create user accounts.
 * has a reports system for coupons :
   - searching all coupons created by a specific user (manager)
-  - searching all coupons at cetrain dates
+  - searching all coupons between/at cetrain dates
   - and export to excel
 
 ### user (manager)
