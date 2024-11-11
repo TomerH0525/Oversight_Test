@@ -9,14 +9,17 @@ and reports system showing the trafic usage of coupons and the option to export 
 
 ### Admin
 * only admins can create user accounts.
-* only admins can create , view , delete or edit coupons.
 * has a reports system for coupons :
-  - searching all coupons created by a specific user
+  - searching all coupons created by a specific user (manager)
   - searching all coupons at cetrain dates
   - and export to excel
 
-### user
+### user (manager)
 * be able to login and logout
+* be able to create, view , delete and edit coupons.
+
+### customer
+* start at cart page
 * has a default 100 nis transaction ready (for testing purposes)
 * be able to apply coupon codes 
 
@@ -29,7 +32,10 @@ and reports system showing the trafic usage of coupons and the option to export 
 * some coupons can have a limit and cannot be used with other coupons.
 * some coupons can be set with a limited usage.
 
-
+## packages
+using shadcn for the ui + fontAwesome
+redux - state
+tailwind - css
 
 
 ### React + TypeScript + Vite
