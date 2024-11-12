@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
-import { Header } from "../Header/Header";
+import { Header } from "../Header/NavBar";
 import Routing from "../Routing";
 import { Toaster } from "@/components/ui/toaster";
 

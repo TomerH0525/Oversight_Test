@@ -51,7 +51,7 @@ export function Header(): JSX.Element {
                 Users
               </Button>
             </Link>
-            <Link to={"/user/coupons"}>
+            <Link to={"/users/coupons"}>
               <Button className="text-md" variant={"default"}>
                 Coupons
               </Button>
