@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import NavigationTabs from "./NavigationTabs";
 import { useEffect, useState } from "react";
 import User from "@/models/User";
-import authStore, { login } from "@/stores/authStore";
+import authStore, { login } from "@/stores/AuthStore";
 
 const tabsWithContent: { tabTitle: string; navigateTo: string }[] = [
   { tabTitle: "Home", navigateTo: "/" },
@@ -31,15 +31,15 @@ export function Header(): JSX.Element {
   }, [loggedUser]);
 
   return (
-    <div className="inline-flex w-full justify-between px-20 py-3 border-b ">
-      <div className="px-5 border-x content-center w-fit shrink-0">
+    <div className="inline-flex w-full justify-between sm:px-20 px-5 py-3 border-b ">
+      <div className="sm:mx-5 m-0 border-x content-center w-fit shrink-0 px-2">
         <Link to={"/home"}>
           <h1 className="sm:text-4xl text-xl m-auto font-bold ">Coupon site</h1>
         </Link>
       </div>
 
       <div className="w-full flex flex-row justify-between">
-        <div className="ml-16">
+        <div className="md:ml-16">
 
         </div>
         <div className="flex gap-2 ">

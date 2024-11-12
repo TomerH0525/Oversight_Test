@@ -44,9 +44,9 @@ const CartItem = React.memo((props: DefaultTransaction) => {
   };
 
   return (
-    <div className="flex flex-row flex-shrink-0 gap-2 p-2 w-[95%] border-b mx-auto mt-2">
+    <div className="flex flex-row flex-shrink-0 gap-2 md:p-2 w-[95%] border-b mx-auto mt-2">
       <Card className="flex flex-row h-[125px] grow border-0 shadow-none rounded-none">
-        <CardHeader className="lg:w-[250px]">
+        <CardHeader className="lg:w-[250px] p-0 my-auto ">
           <CardTitle className="flex flex-col gap-1">
             <Badge
               className="lg:text-lg place-content-center min-w-[100px] text-sm"
@@ -80,9 +80,9 @@ const CartItem = React.memo((props: DefaultTransaction) => {
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-2 text-center m-auto w-[95%]">
-          <div className="font-bold text-3xl">{props.itemName}</div>
-          <CardDescription>{props.itemDescription}</CardDescription>
+        <CardContent className="flex flex-col gap-2 text-center m-auto w-[95%] p-0">
+          <div className="font-bold text-3xl ">{props.itemName}</div>
+          <CardDescription className="text-wrap w-full">{props.itemDescription}</CardDescription>
         </CardContent>
       </Card>
       <Button className="w-2 h-6" size={"sm"} variant={"destructive"}>

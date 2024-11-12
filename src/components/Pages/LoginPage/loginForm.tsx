@@ -19,8 +19,8 @@ export function LoginForm() {
           Please enter your username and password below to login to your account
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="grid gap-4 m-auto ">
+      <CardContent className="">
+        <div className="grid gap-4 m-auto sm:w-[300px]">
           <div className="grid gap-2">
             <Label className="mr-auto" htmlFor="email">
               Username
@@ -30,6 +30,7 @@ export function LoginForm() {
               type="username"
               placeholder="Username"
               required
+              className="font-semibold"
             />
           </div>
           <div className="grid gap-2 ">
@@ -44,7 +45,7 @@ export function LoginForm() {
               type="password"
               required
               placeholder="Password"
-              className=""
+              className="font-semibold"
             />
           </div>
           <Button type="submit" variant={"secondary"} className="w-full">

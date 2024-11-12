@@ -34,13 +34,13 @@ function CartPage(): JSX.Element {
   }, [cart]);
 
   return (
-    <div className="h-full content-center">
-      <Card className="w-[90%] xl:w-[68%] m-auto h-full">
+    <div className="h-full content-center ">
+      <Card className="w-[90%] xl:w-[68%] m-auto h-[90%] flex flex-col">
         <CardHeader className="border-b">
           <CardTitle>Shopping Cart</CardTitle>
         </CardHeader>
 
-        <CardContent className="flex flex-col-reverse lg:flex-row h-[90%] justify-between m-0 p-0">
+        <CardContent className="flex flex-col-reverse lg:flex-row justify-between m-0 p-0 grow">
           <div className="flex flex-col justify-between lg:border-r lg:w-[30%]">
             sdaasd
             <div className="flex flex-col gap-2 ">
