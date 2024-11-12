@@ -6,7 +6,7 @@ import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 //there needs to be a token to validate the user when trying to reach backend
 //and more public user information
 interface AuthState {
-  user: User|null;
+  user: User | null;
 
 }
 
