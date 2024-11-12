@@ -3,20 +3,17 @@ import ClientType from "./enum/ClientType";
 class User {
   userId: number;
   username: string;
-  password: string;
   isLocked?: boolean;
   clientType: ClientType;
 
   constructor(
     userId: number,
-    userName: string,
-    password: string,
+    username: string,
     isLocked: boolean,
     clientType: ClientType,
   ) {
     this.userId = userId;
-    this.username = userName;
-    this.password = password;
+    this.username = username;
     this.isLocked = isLocked;
     this.clientType = clientType;
   }

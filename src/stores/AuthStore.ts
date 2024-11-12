@@ -22,7 +22,10 @@ const authSlice = createSlice({
  { 
   //login saves username and clientType only for this demo.
     login: (state, action: PayloadAction<User>) => {
+      console.log("store trying to update state");
       state.user = action.payload;
+      console.log(state.user);
+      
     },
     //logout empties the user state in the store with a null value
     logout: (state) => {
