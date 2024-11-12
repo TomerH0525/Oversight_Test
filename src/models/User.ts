@@ -1,6 +1,6 @@
 class User {
   userId: number;
-  userName: string;
+  username: string;
   password: string;
   isLocked: boolean;
 
@@ -11,7 +11,7 @@ class User {
     isLocked: boolean
   ) {
     this.userId = userId;
-    this.userName = userName;
+    this.username = userName;
     this.password = password;
     this.isLocked = isLocked;
   }
