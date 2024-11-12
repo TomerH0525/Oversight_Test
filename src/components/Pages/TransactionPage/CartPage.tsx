@@ -9,7 +9,7 @@ const cart = [
   {
     price: 100,
     itemName: "Test",
-    itemDescription: "This is a default 100NIS transaction for testing",
+    itemDescription: "This is a default 100NIS transaction for testing, basdasd asd asd asd asd asd asd asd asd das sadasd asd asd as das das das das das das das das das dsada sda sd das das das das dasd as dasd asd as dasd asd as",
     amount: 1,
     sku: "12345",
   },
@@ -41,13 +41,15 @@ function CartPage(): JSX.Element {
         </CardHeader>
 
         <CardContent className="flex flex-col-reverse lg:flex-row justify-between m-0 p-0 grow">
-          <div className="flex flex-col justify-between lg:border-r lg:w-[30%]">
-            sdaasd
-            <div className="flex flex-col gap-2 ">
+          <div className="flex flex-row-reverse lg:flex-col justify-between lg:border-r lg:w-[30%] min-w-[200px] px-2">
+            <div className="grow">
+            Total price: 
+            </div>
+            <div className="flex flex-col gap-2">
               <div className="">Have a coupon?</div>
               <Input
                 onChange={handleCouponCodeChange}
-                className="max-w-xs sm:w-[70%] m-auto text-center font-bold text-xl"
+                className="m-auto text-center font-bold text-sm w-[150px]"
                 value={couponCode}
                 type="text"
               />
