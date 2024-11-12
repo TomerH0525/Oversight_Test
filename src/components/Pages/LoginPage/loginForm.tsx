@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import CreateUserForm from "../AdminPages/Users/CreateUserForm";
+import { LoginUserForm } from "../AdminPages/Users/CreateUserForm";
 
 export default function LoginForm() {
   return (
@@ -19,7 +19,7 @@ export default function LoginForm() {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
-        <CreateUserForm/>
+        <LoginUserForm/>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account and need one?
           <div>
