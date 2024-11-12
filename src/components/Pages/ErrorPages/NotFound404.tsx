@@ -16,7 +16,7 @@ function NotFound404(): JSX.Element {
 
         <div className="underline transition ease-in-out delay-100 hover:scale-110 duration-300 w-fit m-auto ml-5 inline-block">
           <Link to={"/"} className="w-fit">
-            <Button variant={"outline"} size={"lg"} className="text-2xl bg-secondary">
+            <Button variant={"ghost"} size={"lg"} className="text-2xl bg-white">
               Return Home
             </Button>
           </Link>
