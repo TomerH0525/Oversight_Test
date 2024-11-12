@@ -39,8 +39,24 @@ export function Header(): JSX.Element {
       </div>
 
       <div className="w-full flex flex-row justify-between">
-        <div className="md:ml-16">
-
+        <div className="">
+          <div className="hidden md:flex flex-row gap-2">
+        <Link to={"/admin/reports/coupons"}>
+              <Button className="text-md" variant={"default"}>
+                Coupon Reports
+              </Button>
+            </Link>
+            <Link to={"/admin/users"}>
+              <Button className="text-md" variant={"default"}>
+                Users
+              </Button>
+            </Link>
+            <Link to={"/user/coupons"}>
+              <Button className="text-md" variant={"default"}>
+                Coupons
+              </Button>
+            </Link>
+            </div>
         </div>
         <div className="flex gap-2 ">
           <div>
