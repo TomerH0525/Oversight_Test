@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -44,12 +44,12 @@ const CartItem = React.memo((props: DefaultTransaction) => {
   };
 
   return (
-    <div className="flex flex-row flex-shrink-0 gap-2 p-2 w-full">
-      <Card className="flex flex-row h-[150px] lg:h-[125px] grow">
-        <CardHeader className="border-r-2 lg:w-[250px]">
+    <div className="flex flex-row flex-shrink-0 gap-2 p-2 w-[95%] border-b mx-auto mt-2">
+      <Card className="flex flex-row h-[125px] grow border-0 shadow-none rounded-none">
+        <CardHeader className="lg:w-[250px]">
           <CardTitle className="flex flex-col gap-1">
             <Badge
-              className="sm:text-lg place-content-center"
+              className="lg:text-lg place-content-center min-w-[100px] text-sm"
               variant={"secondary"}
             >
               Price: {price}
@@ -85,8 +85,8 @@ const CartItem = React.memo((props: DefaultTransaction) => {
           <CardDescription>{props.itemDescription}</CardDescription>
         </CardContent>
       </Card>
-      <Button className="m-auto" size={"sm"} variant={"destructive"}>
-        <FontAwesomeIcon icon={faTrashCan} />
+      <Button className="w-2 h-6" size={"sm"} variant={"destructive"}>
+      <FontAwesomeIcon icon={faXmark} />
       </Button>
     </div>
   );

@@ -9,8 +9,8 @@ const cart = [
   {
     price: 100,
     itemName: "Test",
-    itemDescription: "This is a default transaction for testing 100NIS",
-    amount: 3,
+    itemDescription: "This is a default 100NIS transaction for testing",
+    amount: 1,
     sku: "12345",
   },
 ];
