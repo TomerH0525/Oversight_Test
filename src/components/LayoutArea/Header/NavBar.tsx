@@ -3,32 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import NavigationTabs from "./NavigationTabs";
-import { useEffect, useState } from "react";
-import User from "@/models/User";
-import authStore, { login } from "@/stores/AuthStore";
+import { useState } from "react";
 
-const tabsWithContent: { tabTitle: string; navigateTo: string }[] = [
-  { tabTitle: "Home", navigateTo: "/" },
-  { tabTitle: "About", navigateTo: "/about" },
-];
+
 
 export function Header(): JSX.Element {
-  const [loggedUser, setLoggedUser] = useState<User | null>(null);
 
-  useEffect(() => {
-    if (loggedUser == undefined || null) {
-      const user = authStore.getState().user;
-      if (user == null || undefined) {
-        console.log("state empty");
-      } else {
-        setLoggedUser(user);
-      }
-    }
+  const [parentState, setParentState] = useState(0);
 
-    authStore.subscribe(() => {
-      setLoggedUser(authStore.getState().user)
-    })
-  }, [loggedUser]);
+  const handleChildUpdate = () => {
+    setParentState(parentState + 1);
+  };
 
   return (
     <div className="inline-flex w-full justify-between sm:px-20 px-5 py-3 border-b ">
@@ -41,22 +26,8 @@ export function Header(): JSX.Element {
       <div className="w-full flex flex-row justify-between">
         <div className="">
           <div className="hidden md:flex flex-row gap-2">
-        <Link to={"/admin/reports/coupons"}>
-              <Button className="text-md" variant={"default"}>
-                Coupon Reports
-              </Button>
-            </Link>
-            <Link to={"/admin/users"}>
-              <Button className="text-md" variant={"default"}>
-                Users
-              </Button>
-            </Link>
-            <Link to={"/users/coupons"}>
-              <Button className="text-md" variant={"default"}>
-                Coupons
-              </Button>
-            </Link>
-            </div>
+            </div> 
+            <NavigationTabs onUpdate={handleChildUpdate} />
         </div>
         <div className="flex gap-2 ">
           <div>
