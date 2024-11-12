@@ -6,7 +6,6 @@ import { FormControl, FormDescription, FormField, Form, FormItem, FormLabel, For
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardTitle } from "@/components/ui/card";
 
 
 const formSchema = z.object({
@@ -30,14 +29,9 @@ const CreateUserForm = () => {
       
     return (
         <Form {...form} >
-            <div className="h-full">
-            <Card className="m-auto w-[300px] h-[300px]">
-                <CardTitle>
-                    Create User
-                </CardTitle>
-                
             <form onSubmit={form.handleSubmit(onSubmit)} >
-                <CreateUserFormField 
+                <div className="flex flex-col gap-2 max-w-[300px] m-auto">
+                <CreateUserFormField
                 name="username"
                 label="Username"
                 placeholder="Username"
@@ -51,10 +45,9 @@ const CreateUserForm = () => {
                 inputType="password"
                 formControl={form.control}
                 />
-                <Button>Create User</Button>
+                <Button className="max-w-[125px] m-auto">Create User</Button>
+                </div>
             </form>
-            </Card>
-            </div>
         </Form>
       );
     }
@@ -78,7 +71,7 @@ const CreateUserFormField: React.FC<SignupFormFieldProps> = ({
         render={({field}) =>(
             <FormItem>
                 <FormLabel>{label}</FormLabel>
-                <FormControl>
+                <FormControl className="">
                     <Input
                      placeholder={placeholder} 
                      type={inputType || 'text'}
