@@ -18,6 +18,9 @@ import authService from "@/services/AuthService";
 import { toast } from "@/hooks/use-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { redirect, useNavigate } from "react-router-dom";
+import { authStore } from "@/stores/AuthStore";
+import ClientType from "@/models/enum/ClientType";
 
 //the schema for register form
 const registerFormSchema = z.object({
@@ -118,6 +121,7 @@ export const LoginUserForm = () => {
     },
   });
 
+  const navigate = useNavigate();
   //helps know when the button should be in a loading state while data is being transfered though api and is waiting for a response
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -135,6 +139,21 @@ export const LoginUserForm = () => {
           duration: 2000,
           className: "bg-green-600/80",
         });
+
+        switch (authStore.getState().user?.clientType)  {
+          case ClientType.User:
+            navigate("/users/coupons")
+            break;
+
+          case ClientType.Administrator:
+            navigate("/admin/reports/coupons")
+            break;
+
+          default:
+            navigate("/")
+            break;
+        }
+
       })
       .catch((err) => {
         setIsLoading(false);
