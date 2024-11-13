@@ -1,6 +1,8 @@
 import ClientType from "@/models/enum/ClientType";
 import User from "@/models/User";
 import { authStore, login } from "@/stores/AuthStore";
+import CryptoJS from 'crypto-js';
+
 
 // default hardcoded Admin user data
 const adminData = {
@@ -13,6 +15,7 @@ const adminData = {
 
 //singleton service class responsible for authentication calls
 class AuthService {
+
 
   //mimicking api call
   //if successfull return true could be a loggedUserObject with data..
@@ -40,6 +43,26 @@ class AuthService {
       }
     });
   }
+
+  public async registerUser(username: string, password: string): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      try{
+        //delay the call to mimik real api call
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        if(localStorage.getItem(username)){
+          reject(new Error("Username already exists..."))
+        }else{
+          const hashedPassword = CryptoJS.SHA256(password).toString();
+          localStorage.setItem(username,hashedPassword)
+          resolve(true)
+        }
+      }catch (error){
+        reject(error)
+      }
+    })
+  }
+  
+
 }
 
 //creates a singleton service object
