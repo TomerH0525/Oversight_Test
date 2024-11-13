@@ -13,30 +13,35 @@ const adminData = {
 
 //singleton service class responsible for authentication calls
 class AuthService {
-  public async login(username: string, password: string): Promise<boolean> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        let isSuccesfull = false;
 
-        if (
-          username === adminData.username &&
-          password === adminData.password
-        ) {
-          let admin: User = {
+  //mimicking api call
+  //if successfull return true could be a loggedUserObject with data..
+  //if unsuccessfull rejects and returns error..
+  public async login(username: string, password: string): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Simulate network delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+  
+        if (username === adminData.username && password === adminData.password) {
+          const admin: User = {
             userId: adminData.userId,
             username: adminData.username,
             isLocked: adminData.isLocked,
             clientType: adminData.clientType,
           };
-
           authStore.dispatch(login(admin));
-          isSuccesfull = true;
+          resolve(true);
+        } else {
+          reject(new Error('Invalid username or password'));
         }
-        resolve(isSuccesfull);
-      }, 1000);
+      } catch (error) {
+        reject(error);
+      }
     });
   }
 }
+
 //creates a singleton service object
 const authService = new AuthService();
 export default authService;
