@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { LoginUserForm } from "../AdminPages/Users/CreateUserForm";
+import { LoginUserForm } from "../PageUtils/CreateUserForm";
 
 export default function LoginForm() {
   return (
