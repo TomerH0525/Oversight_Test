@@ -17,7 +17,7 @@ export default function UserCreationForm() {
       <DialogTrigger asChild>
         <Button variant="outline">Create User</Button>
       </DialogTrigger>
-      <DialogContent aria-describedby={"registerForm"} className="sm:max-w-[425px]">
+      <DialogContent  aria-describedby={undefined} className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="text-2xl">Create user</DialogTitle>
         </DialogHeader>
