@@ -14,7 +14,6 @@ export interface NavigationButton {
 
 const navigationButtons:NavigationButton[] = [
   { tabTitle: "Coupon Reports", navigateTo: "/admin/reports/coupons", permissions: [ClientType.Administrator]},
-  { tabTitle: "Users", navigateTo: "/admin/users", permissions: [ClientType.Administrator]},
   { tabTitle: "Your Coupons", navigateTo: "/users/coupons",permissions: [ClientType.User]},
 ];
 

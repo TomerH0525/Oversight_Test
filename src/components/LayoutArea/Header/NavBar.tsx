@@ -4,12 +4,15 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import NavigationTabs from "./NavigationTabs";
 import { useState } from "react";
-
-
+import { authStore } from "@/stores/AuthStore";
+import ClientType from "@/models/enum/ClientType";
+import UserCreationForm from "@/components/Pages/AdminPages/Users/UserCreationForm";
+import { Separator } from "@/components/ui/separator";
 
 export function Header(): JSX.Element {
-
   const [parentState, setParentState] = useState(0);
+
+  console.log("navbar updated");
 
   const handleChildUpdate = () => {
     setParentState(parentState + 1);
@@ -25,17 +28,31 @@ export function Header(): JSX.Element {
 
       <div className="w-full flex flex-row justify-between">
         <div className="">
-          <div className="hidden md:flex flex-row gap-2">
-            </div> 
-            <NavigationTabs onUpdate={handleChildUpdate} />
+          <div className="hidden md:flex flex-row gap-2"></div>
+          <NavigationTabs onUpdate={handleChildUpdate} />
         </div>
         <div className="flex gap-2 ">
           <div>
-            <Link to={"/login"}>
-              <Button className="text-md" variant={"ghost"}>
-                Login
+            {authStore.getState().user?.clientType ? authStore.getState().user?.clientType === ClientType.Administrator ? 
+                <div className="flex flex-row-reverse gap-2">
+                  <Button className="text-md" variant={"destructive"}>
+                    Logout
+                  </Button>
+                  <Separator orientation="vertical" className="w-[1px] h-[full]" />
+                  <UserCreationForm/>
+                </div>
+              :
+              <Button className="text-md" variant={"destructive"}>
+              Logout
               </Button>
-            </Link>
+            
+              : 
+              <Link to={"/login"}>
+                <Button className="text-md bg-secondary hover:bg-secondary/70" variant={"ghost"}>
+                  Login
+                </Button>
+              </Link>
+            }
           </div>
 
           <div>
