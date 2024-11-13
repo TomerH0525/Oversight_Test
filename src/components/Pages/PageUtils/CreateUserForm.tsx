@@ -41,7 +41,17 @@ export const CreateUserForm = () => {
     },
   });
   const registerSubmit = (values: z.infer<typeof registerFormSchema>) => {
-    console.log(values);
+    authService.registerUser(values.username,values.password)
+    .then(() => toast({
+      title:"Status code 200",
+      description:"User created successfully",
+      duration:2000
+    }))
+    .catch((err) => (toast({
+      title:"Error",
+      description:err.message,
+      duration:2000
+    })))
   };
 
   return (
