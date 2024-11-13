@@ -4,10 +4,11 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import NavigationTabs from "./NavigationTabs";
 import { useState } from "react";
-import { authStore } from "@/stores/AuthStore";
+import { authStore, logout } from "@/stores/AuthStore";
 import ClientType from "@/models/enum/ClientType";
 import UserCreationForm from "@/components/Pages/AdminPages/Users/UserCreationForm";
 import { Separator } from "@/components/ui/separator";
+import { toast } from "@/hooks/use-toast";
 
 export function Header(): JSX.Element {
   const [parentState, setParentState] = useState(0);
@@ -17,6 +18,16 @@ export function Header(): JSX.Element {
   const handleChildUpdate = () => {
     setParentState(parentState + 1);
   };
+
+  function handleLogout():void {
+    authStore.dispatch(logout());
+    setParentState(parentState + 1)
+    toast({
+      title:"Logout",
+      description:"Logged out successfully!",
+      duration:3000,
+    })
+  }
 
   return (
     <div className="inline-flex w-full justify-between sm:px-20 px-5 py-3 border-b ">
@@ -35,7 +46,7 @@ export function Header(): JSX.Element {
           <div>
             {authStore.getState().user?.clientType ? authStore.getState().user?.clientType === ClientType.Administrator ? 
                 <div className="flex flex-row-reverse gap-2">
-                  <Button className="text-md" variant={"destructive"}>
+                  <Button className="text-md" variant={"destructive"} onClick={handleLogout}>
                     Logout
                   </Button>
                   <Separator orientation="vertical" className="w-[1px] h-[full]" />
