@@ -19,20 +19,23 @@ import { toast } from "@/hooks/use-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
+//the schema for register form
 const registerFormSchema = z.object({
   username: z.string().min(4, "Username need to be atleast 4 charaters"),
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
+//the schema for login form
 const loginFormSchema = z.object({
   username: z.string().min(2, "Username is required"),
   password: z.string().min(2, "Password is required"),
 });
 
+//the component form for creating (registering) a user
 export const CreateUserForm = () => {
-    
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  //the default values in the inputs of the form and loads form with alot of functions from useForm
   const form = useForm<z.infer<typeof registerFormSchema>>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -40,24 +43,39 @@ export const CreateUserForm = () => {
       password: "",
     },
   });
+
+  //function for handling submited data from the register form
   const registerSubmit = (values: z.infer<typeof registerFormSchema>) => {
-    authService.registerUser(values.username,values.password)
-    .then(() => toast({
-      title:"Status code 200",
-      description:"User created successfully",
-      duration:2000
-    }))
-    .catch((err) => (toast({
-      title:"Error",
-      description:err.message,
-      duration:2000
-    })))
+    setIsLoading(true);
+    authService
+      .registerUser(values.username, values.password)
+      .then(() => {
+        setIsLoading(false);
+        form.reset();
+        toast({
+          title: "Status code 200",
+          description: "User created successfully",
+          duration: 2000,
+          className: "bg-green-500/40",
+        });
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        form.reset();
+        toast({
+          title: "Status code 400",
+          description: err.message,
+          duration: 2000,
+          variant: "destructive",
+        });
+      });
   };
 
+  //the component structure in JSX
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(registerSubmit)}>
-        <div className="flex flex-col gap-2 max-w-[300px] m-auto">
+        <div className="flex flex-col gap-2 max-w-[300px] m-auto ">
           <CreateUserFormField
             name="username"
             label="Username"
@@ -88,7 +106,10 @@ export const CreateUserForm = () => {
   );
 };
 
+//the login user form
 export const LoginUserForm = () => {
+
+  // the schema for the login user form
   const form = useForm<z.infer<typeof loginFormSchema>>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
@@ -97,13 +118,24 @@ export const LoginUserForm = () => {
     },
   });
 
+  //helps know when the button should be in a loading state while data is being transfered though api and is waiting for a response
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  //the logic to handle submit with the values recieved from the login form
   const loggingSubmit = (values: z.infer<typeof loginFormSchema>) => {
     setIsLoading(true);
     authService
       .login(values.username, values.password)
-      .then((promise) => setIsLoading(false))
+      .then(() => {
+        setIsLoading(false);
+        form.reset();
+        toast({
+          title: "Status code 200",
+          description: "Login Succesfully",
+          duration: 2000,
+          className: "bg-green-600/80",
+        });
+      })
       .catch((err) => {
         setIsLoading(false);
         toast({
@@ -115,6 +147,7 @@ export const LoginUserForm = () => {
       });
   };
 
+  //the component structure in jsx
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(loggingSubmit)}>
@@ -149,6 +182,7 @@ export const LoginUserForm = () => {
   );
 };
 
+//interface determines which field props must be used or not necceseraly
 interface formFieldProps {
   name: FieldPath<z.infer<typeof registerFormSchema>>;
   label: string;
@@ -158,6 +192,7 @@ interface formFieldProps {
   formControl: Control<z.infer<typeof registerFormSchema>, any>;
 }
 
+//the template for creating fields in the form
 const CreateUserFormField: React.FC<formFieldProps> = ({
   name,
   label,
@@ -174,7 +209,8 @@ const CreateUserFormField: React.FC<formFieldProps> = ({
         <FormItem className="my-1">
           <FormLabel className="underline text-md">{label}</FormLabel>
           <FormControl className="">
-            <Input className=""
+            <Input
+              className=""
               placeholder={placeholder}
               type={inputType || "text"}
               {...field}
