@@ -8,19 +8,19 @@ and reports system showing the trafic usage of coupons and the option to export 
 ## application requirements  
 
 ### Admin
-* only admins can create user accounts.
+* only admins can create user accounts. 
 * has a reports system for coupons :
   - searching all coupons created by a specific user (manager)
   - searching all coupons between/at cetrain dates
   - and export to excel
 
 ### user (manager)
-* be able to login and logout
+* be able to login and logout 
 * be able to create, view , delete and edit coupons.
 
 ### customer
-* start at cart page
-* has a default 100 nis transaction ready (for testing purposes)
+* start at cart page 
+* has a default 100 nis transaction ready (for testing purposes) 
 * be able to apply coupon codes 
 
 ### coupons
