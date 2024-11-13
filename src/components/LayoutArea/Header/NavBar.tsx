@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import NavigationTabs from "./NavigationTabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { authStore, logout } from "@/stores/AuthStore";
 import ClientType from "@/models/enum/ClientType";
 import UserCreationForm from "@/components/Pages/AdminPages/Users/UserCreationForm";
@@ -19,13 +19,24 @@ export function Header(): JSX.Element {
     setParentState(parentState + 1);
   };
 
+
+  useEffect(() => {
+
+    const unsubscribe = authStore.subscribe(() =>{
+      setParentState(parentState + 1)
+    });
+
+    return () => unsubscribe();
+
+  },[parentState])
+
   function handleLogout():void {
     authStore.dispatch(logout());
     setParentState(parentState + 1)
     toast({
       title:"Logout",
       description:"Logged out successfully!",
-      duration:3000,
+      duration:2000,
     })
   }
 
@@ -53,7 +64,7 @@ export function Header(): JSX.Element {
                   <UserCreationForm/>
                 </div>
               :
-              <Button className="text-md" variant={"destructive"}>
+              <Button className="text-md" variant={"destructive"} onClick={handleLogout}>
               Logout
               </Button>
             
