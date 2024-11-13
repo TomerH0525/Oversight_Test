@@ -2,7 +2,6 @@ import ClientType from "@/models/enum/ClientType";
 import User from "@/models/User";
 import { authStore, login } from "@/stores/AuthStore";
 import CryptoJS from 'crypto-js';
-import { json } from "stream/consumers";
 
 
 // default hardcoded Admin user data
@@ -54,7 +53,7 @@ class AuthService {
               const loggedUser:User = {username:jsonObject.username,clientType:jsonObject.clientType,userId:parseInt(jsonObject.userId),isLocked:jsonObject.isLocked};
               authStore.dispatch(login(loggedUser))
             })
-          .catch((err) => resolve(false))
+          .catch(() => resolve(false))
             console.log("passwword matches! logging in");
         } else {
             reject(new Error('Invalid username or password'));

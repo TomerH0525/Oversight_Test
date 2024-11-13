@@ -18,7 +18,7 @@ import authService from "@/services/AuthService";
 import { toast } from "@/hooks/use-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authStore } from "@/stores/AuthStore";
 import ClientType from "@/models/enum/ClientType";
 

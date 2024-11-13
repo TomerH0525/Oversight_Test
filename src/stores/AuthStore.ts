@@ -1,4 +1,3 @@
-import ClientType from '@/models/enum/ClientType';
 import User from '@/models/User';
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 

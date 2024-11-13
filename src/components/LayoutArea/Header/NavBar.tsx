@@ -25,7 +25,7 @@ export function Header(): JSX.Element {
     const unsubscribe = authStore.subscribe(() =>{
       setParentState(parentState + 1)
     });
-
+    
     return () => unsubscribe();
 
   },[parentState])
@@ -36,7 +36,7 @@ export function Header(): JSX.Element {
     toast({
       title:"Logout",
       description:"Logged out successfully!",
-      duration:2000,
+      duration:3000,
     })
   }
 

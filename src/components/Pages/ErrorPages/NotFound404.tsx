@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { faPersonWalkingArrowLoopLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NotFound404(): JSX.Element {
     
