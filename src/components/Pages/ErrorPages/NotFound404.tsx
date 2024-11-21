@@ -7,7 +7,7 @@ function NotFound404(): JSX.Element {
     
   return (
     <div className="flex flex-col gap-2 text-center h-[60%]">
-         <img className="sm:w-[25%] m-auto pr-5" src="./NotFound404.png" alt="404notfoundimage"></img>
+         <img className="sm:w-[25%] m-auto pr-5" src="NotFound404.png" alt="404notfoundimage"></img>
       <div className="m-auto w-fit ">
         <div className="text-4xl p-5">
           The page you are looking for was{" "}
