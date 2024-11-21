@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 function Layout(): JSX.Element {
   return (
-    <BrowserRouter basename="{process.env.PUBLIC_URL}">
+    <BrowserRouter basename="/Oversight_Test">
       <div className="flex flex-col h-[100vh] text-center shrink-0 sticky w-[100vw] min-h-[565px]">
         <header className="h-[10%] grow-0">
           <Header />
