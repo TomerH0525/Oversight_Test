@@ -10,10 +10,10 @@ function Routing(): JSX.Element {
     <>
       <Routes>
         <Route index element={<CartPage />} />
-        <Route path="./home" element={<HomePage />} />
-        <Route path="./login" element={<LoginPage />} />
-        <Route path="./admin/reports/coupons" element={<CouponReportsPage />} />
-        <Route path="./users/coupons" element={<NotFound404 />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin/reports/coupons" element={<CouponReportsPage />} />
+        <Route path="/users/coupons" element={<NotFound404 />} />
 
 
         <Route path="*" element={<NotFound404 />} />
