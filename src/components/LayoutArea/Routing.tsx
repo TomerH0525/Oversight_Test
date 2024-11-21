@@ -16,7 +16,7 @@ function Routing(): JSX.Element {
         <Route path="/users/coupons" element={<NotFound404 />} />
 
 
-        <Route path="*" element={<NotFound404 />} />
+        <Route path="/*" element={<NotFound404 />} />
       </Routes>
     </>
   );
