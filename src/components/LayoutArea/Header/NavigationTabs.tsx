@@ -18,7 +18,7 @@ const navigationButtons:NavigationButton[] = [
 ];
 
 export default function NavigationTabs({ onUpdate }: { onUpdate: () => void }) {
-  const [, setLoggedUser] = useState<User | null>(
+  const [loggedUser, setLoggedUser] = useState<User | null>(
     () => authStore.getState().user || null
   );
 
@@ -34,10 +34,13 @@ export default function NavigationTabs({ onUpdate }: { onUpdate: () => void }) {
 
       const filteredTabs = navigationButtons.filter((tab) =>{
         if (updatedUser) {
-          tab.permissions.includes(updatedUser?.clientType)
-        }
+          return tab.permissions.includes(updatedUser?.clientType)
+          
+        }else return false;
         
       });
+      console.log(filteredTabs);
+      
       setTabs(filteredTabs);
       onUpdate();
     });
